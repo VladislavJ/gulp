@@ -1,13 +1,17 @@
 var gulp = require('gulp'),
-	postcss = require('postcss');
+	postcss = require('gulp-postcss');
 
-gulp.src('css/main.css')
+gulp.task('css', function () {
+return gulp.src('css/main.css')
 .pipe(postcss([
 	require('postcss-import'),
 	require('postcss-nested'),
 	require('autoprefixer'),
 ]))
-.pipe(gulp.dest('css/bundle.css/'));
+.pipe(gulp.dest('dist'))
+});
+
+
 
 // gulp.task('default', function () {
 //   return gulp.src('css/*.css')
